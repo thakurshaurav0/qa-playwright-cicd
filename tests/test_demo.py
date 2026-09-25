@@ -12,6 +12,6 @@ with sync_playwright() as p:
     page.get_by_role("button", name="Log in").click()
     print('Login Completed')
 
-    page.wait_for_timeout(15000)
+    page.wait_for_timeout(20000)
     print('Browser waited for 15 seconds')
     browser.close()
