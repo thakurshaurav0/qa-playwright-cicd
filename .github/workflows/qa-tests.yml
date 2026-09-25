@@ -1,0 +1,9 @@
+name: QA Automation Tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "QA Automation Tests is working!"
