@@ -1,17 +1,21 @@
-import time
 from playwright.sync_api import sync_playwright
 
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False)
 
-    page = browser.new_page()
+def test_login():
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
 
-    page.goto("https://webmail.suramicro.systems/")
-    page.get_by_label("Email Address").fill('shaurav.thakur@suramicro.systems')
-    page.get_by_text("Password", exact=True).fill('Thakur@4119')
-    page.get_by_role("button", name="Log in").click()
-    print('Login Completed')
+        page = browser.new_page()
 
-    page.wait_for_timeout(20000)
-    print('Browser waited for 15 seconds')
-    browser.close()
+        page.goto("https://webmail.suramicro.systems/")
+
+        page.get_by_label("Email Address").fill("YOUR_EMAIL")
+        page.get_by_text("Password", exact=True).fill("YOUR_PASSWORD")
+
+        page.get_by_role("button", name="Log in").click()
+
+        print("Login Completed")
+
+        page.wait_for_timeout(5000)
+
+        browser.close()
