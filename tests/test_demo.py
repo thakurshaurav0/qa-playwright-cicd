@@ -16,6 +16,6 @@ def test_login():
 
         print("Login Completed")
 
-        page.wait_for_timeout(5000)
+        page.wait_for_timeout(2000)
 
         browser.close()
